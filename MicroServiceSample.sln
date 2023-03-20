@@ -15,11 +15,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "Src\Serv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasketService", "BasketService", "{E42FFEB2-9B4B-423F-85ED-9B630AC7AEF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService", "Src\Services\BasketService\BasketService\BasketService.csproj", "{0A206318-587E-4CAB-9D0A-BB77352E7C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService", "Src\Services\BasketService\BasketService\BasketService.csproj", "{0A206318-587E-4CAB-9D0A-BB77352E7C07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductService", "ProductService", "{868BF3E5-17D9-494B-8576-65882D21E800}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService", "Src\Services\ProductService\ProductService\ProductService.csproj", "{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductService", "Src\Services\ProductService\ProductService\ProductService.csproj", "{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{E313509E-C5C8-428F-AFBC-5335F70B7B66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Base", "Src\BuildingBlocks\EventBus\EventBus.Base\EventBus.Base.csproj", "{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Manager", "Src\BuildingBlocks\EventBus\EventBus.Manager\EventBus.Manager.csproj", "{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.RabbitMQ", "EventBus.RabbitMQ\EventBus.RabbitMQ.csproj", "{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,18 @@ Global
 		{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +72,10 @@ Global
 		{0A206318-587E-4CAB-9D0A-BB77352E7C07} = {E42FFEB2-9B4B-423F-85ED-9B630AC7AEF1}
 		{868BF3E5-17D9-494B-8576-65882D21E800} = {EE793879-F8B5-47D2-BF2B-1D8873EFE316}
 		{25EF562E-C9D8-4B7C-B3C8-91B16C7E3C4B} = {868BF3E5-17D9-494B-8576-65882D21E800}
+		{E313509E-C5C8-428F-AFBC-5335F70B7B66} = {51BD42C3-88A6-4497-9932-6DF6D72FC6AB}
+		{45A0F8BF-446C-4F77-8B42-3F4FB8F8978E} = {E313509E-C5C8-428F-AFBC-5335F70B7B66}
+		{E4AE28CF-C6CA-4EBE-9C71-0519CB64EDDE} = {E313509E-C5C8-428F-AFBC-5335F70B7B66}
+		{6AE6B30E-44F4-436D-BDEB-5BCA62D5E2B6} = {E313509E-C5C8-428F-AFBC-5335F70B7B66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A6D8296-EA7F-4131-9EDC-94822A0E36A4}
