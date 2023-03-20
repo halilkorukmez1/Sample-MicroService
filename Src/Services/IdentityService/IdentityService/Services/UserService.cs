@@ -41,8 +41,8 @@ public class UserService : IUserService
             { 
                 new Claim("id", user.Id.ToString()),
                 new Claim("userName",user.Username),
+                new Claim("fName",user.FirstName),
                 new Claim("lastName",user.LastName),
-                new Claim("firsName",user.FirstName),
             }),
             Expires = DateTime.UtcNow.AddDays(7),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

@@ -1,6 +1,4 @@
 ﻿using IdentityService.Config;
-using IdentityService.Models;
-using IdentityService.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,16 +16,14 @@ public class JwtMiddleware
         _appSettings = appSettings.Value;
     }
 
-    public async Task Invoke(HttpContext context, IUserService userService)
+    public async Task Invoke(HttpContext context)
     {
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-        if (token is not null) await AttachUserToContext(context, userService, token);
-
+        if (token is not null) await AttachUserToContext(context, token);
         await _next(context);
     }
 
-    private async Task AttachUserToContext(HttpContext context, IUserService userService, string token)
+    private async Task AttachUserToContext(HttpContext context, string token)
     {
         try
         {
@@ -42,13 +38,9 @@ public class JwtMiddleware
                 }, out SecurityToken validatedToken);
 
             var jwtToken = (JwtSecurityToken)validatedToken;
-            context.Items["User"] = new 
-            { 
-                Id = jwtToken.Claims.First(x => x.Type == "id").Value,
-                LastName = jwtToken.Claims.First(x => x.Type == "lastName").Value,
-                FirstName = jwtToken.Claims.First(x => x.Type == "firstName").Value,
-                UserName = jwtToken.Claims.First(x => x.Type == "userName").Value,
-            };
+            context.Items["userId"] = jwtToken.Claims.First(x => x.Type == "id").Value;
+            context.Items["lastName"] = jwtToken.Claims.First(x => x.Type == "lastName").Value;
+            context.Items["userName"] = jwtToken.Claims.First(x => x.Type == "userName").Value;
         }
         catch
         {

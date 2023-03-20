@@ -40,13 +40,9 @@ public class JwtMiddleware
                 }, out SecurityToken validatedToken);
 
             var jwtToken = (JwtSecurityToken)validatedToken;
-            context.Items["User"] = new
-            {
-                Id = jwtToken.Claims.First(x => x.Type == "id").Value,
-                LastName = jwtToken.Claims.First(x => x.Type == "lastName").Value,
-                FirstName = jwtToken.Claims.First(x => x.Type == "firstName").Value,
-                UserName = jwtToken.Claims.First(x => x.Type == "userName").Value,
-            };
+            context.Items["userId"] = jwtToken.Claims.First(x => x.Type == "id").Value;
+            context.Items["lastName"] = jwtToken.Claims.First(x => x.Type == "lastName").Value;
+            context.Items["userName"] = jwtToken.Claims.First(x => x.Type == "userName").Value;
         }
         catch
         {
