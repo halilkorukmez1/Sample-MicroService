@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿
+using MediatR;
 
 namespace Product.Application.Features.Command.DeleteProduct;
 public class RemoveProductCommandRequest : IRequest<RemoveProductCommandResponse>

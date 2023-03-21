@@ -1,7 +1,7 @@
 ﻿using EventBus.Base.Abstraction;
 using EventBus.Base.Config;
 using EventBus.Base.Enum;
-using EventBus.RabbitMQ;
+using EventBus.RabbitMq;
 
 namespace EventBus.Manager;
 public static class EventBusManager

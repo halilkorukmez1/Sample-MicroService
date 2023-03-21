@@ -4,7 +4,7 @@ using RabbitMQ.Client.Events;
 using RabbitMQ.Client.Exceptions;
 using System.Net.Sockets;
 
-namespace EventBus.RabbitMQ;
+namespace EventBus.RabbitMq;
 public class RabbitMQConnection : IDisposable
 {
     private readonly IConnectionFactory _connectionFactory;
@@ -33,7 +33,7 @@ public class RabbitMQConnection : IDisposable
         }
         catch (Exception e)
         {
-            throw new Exception(e.InnerException.InnerException.InnerException.ToString());
+            throw new Exception(e.InnerException.ToString());
         }
 
     }

@@ -9,7 +9,7 @@ using RabbitMQ.Client.Exceptions;
 using System.Net.Sockets;
 using System.Text;
 
-namespace EventBus.RabbitMQ;
+namespace EventBus.RabbitMq;
 public class RabbitMQManager : BaseEventBus
 {
     private readonly IConnectionFactory _connectionFactory;
@@ -29,13 +29,13 @@ public class RabbitMQManager : BaseEventBus
     {
         if (!rabbitMQConnection.IsConnected()) rabbitMQConnection.TryConnect();
         var policy = Policy.Handle<BrokerUnreachableException>()
-            .Or<SocketException>()
-            .WaitAndRetry(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) => { });
-      
+                           .Or<SocketException>()
+                           .WaitAndRetry(3, retryAttempt 
+                            => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) => { });
+
         var eventName = ProcessEventName(@event.GetType().Name);
-       
         _consumerChannel.ExchangeDeclare(exchange: EventBusConfig.DefaultTopicName, type: "direct");
-       
+
         policy.Execute(() =>
         {
             var properties = _consumerChannel.CreateBasicProperties();
