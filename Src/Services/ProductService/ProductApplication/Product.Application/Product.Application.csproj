@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Command\CreateProduct\" />
+    <Folder Include="Features\Command\DeleteProduct\" />
+    <Folder Include="Features\Command\UpdateProduct\" />
+    <Folder Include="Features\Query\GetAllProduct\" />
+    <Folder Include="Features\Query\GetByIdProduct\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProductDomain\Product.Domain\Product.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
