@@ -1,4 +1,6 @@
-﻿namespace Product.Infrastructure.Outbox;
+﻿using MediatR;
+
+namespace Product.Infrastructure.Outbox;
 public class OutboxMessage
 {
     public OutboxMessage()
@@ -13,4 +15,5 @@ public class OutboxMessage
     public string Type { get; set; }
     public string Data { get; set; }
     public DateTime? Processed { get; set; }
+    public bool? Status { get; set; }
 }
